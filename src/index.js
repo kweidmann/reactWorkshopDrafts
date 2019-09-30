@@ -3,12 +3,11 @@ import ReactDOM from "react-dom";
 
 import "./styles.css";
 
-
-function Name(props){
+function Name(props) {
   return <h1 src="name">{props.name}</h1>;
 }
 
-function Handle(props){
+function Handle(props) {
   return <h3 id="handle">{props.handle}</h3>;
 }
 
@@ -17,40 +16,43 @@ function Avatar(props) {
 }
 
 //function based component
-function Friendslist(props){
-  return (
-    <ul>
-      <li>Alice</li>
-      <li>Bob</li>
-      <li>Carlo</li>
-    </ul>
-  )
-}
+// function Friendslist(props){
+//   return (
+//     <ul>
+//       <li>Alice</li>
+//       <li>Bob</li>
+//       <li>Carlo</li>
+//     </ul>
+//   )
+// }
 
 //class based component
-class FriendsList extends React.Component{
+class Friendslist extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const friends = ["Alice","Bob", "Carol"]
+    const friends = ["Alice", "Bob", "Carol"];
     return (
       <ul>
-        {friends.map((name) => (<li>{name}</li>))}
+        {friends.map(name => (
+          <li key={name}>{name}</li>
+        ))}
       </ul>
     );
   }
 }
 
-function App(props){
+function App(props) {
   return (
     <div>
       <Name name="Karl-Heinz Weidmann" />
       <Handle handle="@kweidmann" />
       <Avatar imgSrc="https://twitter.com/drweidmann/header_photo" />
       <Friendslist />
-    </div>);
+    </div>
+  );
 }
 
 const rootElement = document.getElementById("root");
