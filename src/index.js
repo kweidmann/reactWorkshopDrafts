@@ -12,7 +12,7 @@ function Handle(props) {
 }
 
 function Avatar(props) {
-  return <image src={props.imgSrc} width="40" hight="40" />;
+  return <img src={props.imgSrc} width="40" hight="40" />;
 }
 
 //function based component
@@ -112,7 +112,7 @@ function App(props) {
     <div>
       <Name name="Karl-Heinz Weidmann" />
       <Handle handle="@kweidmann" />
-      <Avatar imgSrc="https://avatars2.githubusercontent.com/u/31845616?s=460&v=4" />
+      <Avatar imgSrc="https://avatars1.githubusercontent.com/u/7114524?s=400&u=e68c22a956afbbe50912fa24dd43de5a703d4f5a&v=4" />
       <Friendslist />
     </div>
   );
