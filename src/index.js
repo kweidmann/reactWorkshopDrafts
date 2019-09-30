@@ -26,11 +26,20 @@ function Avatar(props) {
 //   )
 // }
 
+window.API = {
+  fetchFriends() {
+    return new Promise((res, req) => {
+      const friends = ["Alice", "Bob", "Carol", "Ernst"];
+      setTimeout(() => res(friends), 2000);
+    });
+  }
+};
+
 //class based component
 class Friendslist extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { friends: ["Alice", "Bob", "Carol"] };
+    this.state = { friends: [], input: "" };
   }
 
   handleRemoveFriend(name) {
@@ -39,6 +48,17 @@ class Friendslist extends React.Component {
         friends: currentState.friends.filter(friend => friend !== name)
       };
     });
+  }
+
+  componentDidMount() {
+    window.API.fetchFriends().then(friends => {
+      this.setState({
+        friends: friends
+      });
+    });
+    // this.setState({
+    //   friends: ["Alice", "Bob", "Carol"]
+    // })
   }
 
   handleAddFriend(name) {
@@ -67,7 +87,7 @@ class Friendslist extends React.Component {
             <li key={name}>
               <span>{name}</span>
               <button onClick={() => this.handleRemoveFriend(name)}>
-                Reomve{" "}
+                Remove
               </button>
             </li>
           ))}
