@@ -40,18 +40,31 @@ class Friendslist extends React.Component {
       };
     });
   }
+
+  //<button onClick="alert('there');">Remove</button>
+
   render() {
     return (
-      <ul>
-        {this.state.friends.map(name => (
-          <li key={name}>
-            <span>{name}</span>
-            <button onclick={() => this.handleRemoveFriend(name)}>
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {this.state.friends.map(name => (
+            <li key={name}>
+              <span>{name}</span>
+              <button onClick={() => this.handleRemoveFriend(name)}>
+                Reomve{" "}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <h4>Add a new freind:</h4>
+        <input
+          type="text"
+          placeholder="Enter friend name"
+          vaule={this.state.input}
+          onChange={this.updateNewFriendName}
+        />
+        <button>Add Friend</button>
+      </div>
     );
   }
 }
