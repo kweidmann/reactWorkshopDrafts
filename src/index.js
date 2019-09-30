@@ -33,11 +33,23 @@ class Friendslist extends React.Component {
     this.state = { friends: ["Alice", "Bob", "Carol"] };
   }
 
+  handleRemoveFriend(name) {
+    this.setState(currentState => {
+      return {
+        friends: currentState.friends.filter(friend => friend !== name)
+      };
+    });
+  }
   render() {
     return (
       <ul>
         {this.state.friends.map(name => (
-          <li key={name}>{name}</li>
+          <li key={name}>
+            <span>{name}</span>
+            <button onclick={() => this.handleRemoveFriend(name)}>
+              Remove
+            </button>
+          </li>
         ))}
       </ul>
     );
@@ -49,7 +61,7 @@ function App(props) {
     <div>
       <Name name="Karl-Heinz Weidmann" />
       <Handle handle="@kweidmann" />
-      <Avatar imgSrc="https://twitter.com/drweidmann/header_photo" />
+      {/* <Avatar imgSrc="https://twitter.com/drweidmann/header_photo" /> */}
       <Friendslist />
     </div>
   );
