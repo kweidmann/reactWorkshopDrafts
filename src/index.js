@@ -44,7 +44,7 @@ class Friendslist extends React.Component {
   handleAddFriend(name) {
     this.setState(currentState => {
       return {
-        friend: currentState.friends.concat([name]),
+        friends: currentState.friends.concat([name]),
         input: ""
       };
     });
