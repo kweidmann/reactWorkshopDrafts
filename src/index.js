@@ -96,7 +96,7 @@ class Friendslist extends React.Component {
         <input
           type="text"
           placeholder="Enter friend name"
-          vaule={this.state.input}
+          value={this.state.input}
           onChange={event => this.updateNewFriendName(event)}
         />
         <button onClick={() => this.handleAddFriend(this.state.input)}>
