@@ -41,6 +41,22 @@ class Friendslist extends React.Component {
     });
   }
 
+  handleAddFriend(name) {
+    this.setState(currentState => {
+      return {
+        friend: currentState.friends.concat([name]),
+        input: ""
+      };
+    });
+  }
+
+  updateNewFriendName(event) {
+    const value = event.target.value;
+    this.setState({
+      input: value
+    });
+  }
+
   //<button onClick="alert('there');">Remove</button>
 
   render() {
@@ -61,9 +77,11 @@ class Friendslist extends React.Component {
           type="text"
           placeholder="Enter friend name"
           vaule={this.state.input}
-          onChange={this.updateNewFriendName}
+          onChange={event => this.updateNewFriendName(event)}
         />
-        <button>Add Friend</button>
+        <button onClick={() => this.handleAddFriend(this.state.input)}>
+          Add Friend
+        </button>
       </div>
     );
   }
