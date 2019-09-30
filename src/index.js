@@ -30,13 +30,13 @@ function Avatar(props) {
 class Friendslist extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { friends: ["Alice", "Bob", "Carol"] };
   }
 
   render() {
-    const friends = ["Alice", "Bob", "Carol"];
     return (
       <ul>
-        {friends.map(name => (
+        {this.state.friends.map(name => (
           <li key={name}>{name}</li>
         ))}
       </ul>
